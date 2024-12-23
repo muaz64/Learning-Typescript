@@ -1,50 +1,106 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Learnings
 
-Currently, two official plugins are available:
+### Introduction to TypeScript
+TypeScript is a strongly typed programming language that builds on JavaScript. It introduces static typing, making it easier to catch errors during development. With TypeScript, you can define variable types, interfaces, and props for React components, ensuring better code reliability and readability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Environment Setup
+1. Install [Node.js](https://nodejs.org/) on your system.
+2. Create a new React project using Vite:
+   ```bash
+   npm create vite@latest react-typescript-app -- --template react-ts
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd react-typescript-app
+   ```
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
+### TypeScript for Props - Built-in Types (string, number, Boolean)
+Using TypeScript, you can define types for props in React components.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Features
+- TypeScript integration with React.
+- Three approaches for handling props in TypeScript:
+  1. **Normal Method**: Directly defining prop types in the component.
+  2. **Type Alias Method**: Using a `type` alias to define the props.
+  3. **Destructuring Method**: Destructuring props with type annotations.
+  ---
+ In this app, we explore three methods to handle props:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+#### 1. Normal Method
+```tsx
+const User = (props: {
+  name: string;
+  email: string;
+  age: number;
+  isRegistered: boolean;
+}) => {
+  return (
+    <div style={{ border: "1px solid", margin: "1rem" }}>
+      <h2>{props.name}</h2>
+      <p>{props.email}</p>
+      <p>{props.age} years old</p>
+      {props.isRegistered ? <p>Registered Student</p> : <p>Unregistered Student</p>}
+    </div>
+  );
+};
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### 2. Type Alias Method
+```tsx
+type UserProps = {
+  name: string;
+  email: string;
+  age: number;
+  isRegistered: boolean;
+};
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+const User = (props: UserProps) => {
+  return (
+    <div style={{ border: "1px solid", margin: "1rem" }}>
+      <h2>{props.name}</h2>
+      <p>{props.email}</p>
+      <p>{props.age} years old</p>
+      {props.isRegistered ? <p>Registered Student</p> : <p>Unregistered Student</p>}
+    </div>
+  );
+};
 ```
+
+#### 3. Destructuring Method
+```tsx
+type UserProps = {
+  name: string;
+  email: string;
+  age: number;
+  isRegistered: boolean;
+};
+
+const User = ({ name, email, age, isRegistered }: UserProps) => {
+  return (
+    <div style={{ border: "1px solid", margin: "1rem" }}>
+      <h2>{name}</h2>
+      <p>{email}</p>
+      <p>{age} years old</p>
+      {isRegistered ? <p>Registered Student</p> : <p>Unregistered Student</p>}
+    </div>
+  );
+};
+
+export default User;
+```
+
+
+
+## License
+This project is open-source and available under the [MIT License](LICENSE).
+
