@@ -14,7 +14,7 @@ function App() {
         isRegistered={true}
       />
       <User
-        name="Musad"
+        name="Musab"
         email="muasab22@yahoo.com"
         age={18}
         isRegistered={false}
@@ -23,4 +23,6 @@ function App() {
   )
 }
 
-export default App
+export default App;
+
+

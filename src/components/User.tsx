@@ -20,23 +20,43 @@
 // }; 
 
 // User.tsx (version-2) type method
+// type UserProps = {
+//   name: string;
+//   email: string;
+//   age: number;
+//   isRegistered: boolean;
+// };
+// const User = (props: UserProps) => {
+//   return (
+//     <div style={{ border: "1px solid", margin: "1rem" }}>
+//       <h2>{props.name}</h2>
+//       <p>{props.email}</p>
+//       <p>{props.age} years old</p>
+//       {props.isRegistered ? (
+//         <p>Registered Student</p>
+//       ) : (
+//         <p>Unregistered Student</p>
+//       )}
+//     </div>
+//   );
+// };
+
+
+// User.tsx (version-3) destructuring Method
+
 type UserProps = {
   name: string;
   email: string;
   age: number;
   isRegistered: boolean;
 };
-const User = (props: UserProps) => {
+const User = ({ name, email, age, isRegistered }: UserProps) => {
   return (
     <div style={{ border: "1px solid", margin: "1rem" }}>
-      <h2>{props.name}</h2>
-      <p>{props.email}</p>
-      <p>{props.age} years old</p>
-      {props.isRegistered ? (
-        <p>Registered Student</p>
-      ) : (
-        <p>Unregistered Student</p>
-      )}
+      <h2>{name}</h2>
+      <p>{email}</p>
+      <p>{age} years old</p>
+      {isRegistered ? <p>Registered Student</p> : <p>Unregistered Student</p>}
     </div>
   );
 };
