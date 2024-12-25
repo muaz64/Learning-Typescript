@@ -62,29 +62,45 @@
 // };
 
 // object props method
+// type UserProps = {
+//   user: {
+//     name: string;
+//     email: string;
+//     age: number;
+//     isRegistered: boolean;
+//   };
+// };
+// const User = ({ user }: UserProps) => {
+//   return (
+//     <div style={{ border: "1px solid", margin: "1rem" }}>
+//       <h2>{user.name}</h2>
+//       <p>{user.email}</p>
+//       <p>{user.age} years old</p>
+//       {user.isRegistered ? (
+//         <p>Registered Student</p>
+//       ) : (
+//         <p>Unregistered Student</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// simple example array props
 type UserProps = {
-  user: {
-    name: string;
-    email: string;
-    age: number;
-    isRegistered: boolean;
-  };
+  lang: string[];
 };
-const User = ({ user }: UserProps) => {
+const User = ({ lang }: UserProps) => {
   return (
     <div style={{ border: "1px solid", margin: "1rem" }}>
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <p>{user.age} years old</p>
-      {user.isRegistered ? (
-        <p>Registered Student</p>
-      ) : (
-        <p>Unregistered Student</p>
-      )}
+      <p>
+        Speaks:{" "}
+        {lang.map((language, index) => {
+          return <span key={index}>{language} </span>;
+        })}
+      </p>
     </div>
   );
 };
-
 
 
 export default User
