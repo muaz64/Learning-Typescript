@@ -44,22 +44,47 @@
 
 // User.tsx (version-3) destructuring Method
 
+// type UserProps = {
+//   name: string;
+//   email: string;
+//   age: number;
+//   isRegistered: boolean;
+// };
+// const User = ({ name, email, age, isRegistered }: UserProps) => {
+//   return (
+//     <div style={{ border: "1px solid", margin: "1rem" }}>
+//       <h2>{name}</h2>
+//       <p>{email}</p>
+//       <p>{age} years old</p>
+//       {isRegistered ? <p>Registered Student</p> : <p>Unregistered Student</p>}
+//     </div>
+//   );
+// };
+
+// object props method
 type UserProps = {
-  name: string;
-  email: string;
-  age: number;
-  isRegistered: boolean;
+  user: {
+    name: string;
+    email: string;
+    age: number;
+    isRegistered: boolean;
+  };
 };
-const User = ({ name, email, age, isRegistered }: UserProps) => {
+const User = ({ user }: UserProps) => {
   return (
     <div style={{ border: "1px solid", margin: "1rem" }}>
-      <h2>{name}</h2>
-      <p>{email}</p>
-      <p>{age} years old</p>
-      {isRegistered ? <p>Registered Student</p> : <p>Unregistered Student</p>}
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+      <p>{user.age} years old</p>
+      {user.isRegistered ? (
+        <p>Registered Student</p>
+      ) : (
+        <p>Unregistered Student</p>
+      )}
     </div>
   );
 };
+
 
 
 export default User
