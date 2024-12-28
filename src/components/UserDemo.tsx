@@ -4,12 +4,10 @@ type UserDemoProps = {
         name: string;
         email: string;
         age: number;
-    }[]
+    }[];
 }
-const UserDemo = ({ Users }: UserDemoProps) => {
-  return (
-    <div>UserDemo</div>
-  )
+const UserDemo = function ({ Users }: UserDemoProps) {
+    return <div>UserDemo</div>;
 }
 
 export default UserDemo

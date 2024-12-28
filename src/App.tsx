@@ -1,7 +1,7 @@
 
 import './App.css'
+import DataFetch from './components/DataFetch';
 
-import UserDemo from './components/UserDemo';
 
 // const user1 = {
 //   name: "Muaz",
@@ -25,27 +25,26 @@ import UserDemo from './components/UserDemo';
 //     </div>
 //   );
 // }
-const Users =[
-  {
-    id: 1,
-    name: "Muaz",
-    email: "muaz11@gmail.com",
-    age: 25,
-  },
-  {
-    id:2,
-    name: "Musab",
-    email: "musab20@yahoo.co.uk",
-    age: 18,
+// const Users =[
+//   {
+//     id: 1,
+//     name: "Muaz",
+//     email: "muaz11@gmail.com",
+//     age: 25,
+//   },
+//   {
+//     id:2,
+//     name: "Musab",
+//     email: "musab20@yahoo.co.uk",
+//     age: 18,
 
-  }
-]
+//   }
+// ]
 function App() {
   return (
     <div className="App">
       <h1>User Management App</h1>
-      {/* <User lang={["Bangla", "English", "Finnish"]} /> */}
-      <UserDemo Users={Users} />
+    <DataFetch text="UPDATE" />
     </div>
   );
 }
