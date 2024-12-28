@@ -1,6 +1,7 @@
 
 import './App.css'
-import User from './components/User'
+
+import UserDemo from './components/UserDemo';
 
 // const user1 = {
 //   name: "Muaz",
@@ -24,11 +25,27 @@ import User from './components/User'
 //     </div>
 //   );
 // }
+const Users =[
+  {
+    id: 1,
+    name: "Muaz",
+    email: "muaz11@gmail.com",
+    age: 25,
+  },
+  {
+    id:2,
+    name: "Musab",
+    email: "musab20@yahoo.co.uk",
+    age: 18,
+
+  }
+]
 function App() {
   return (
     <div className="App">
       <h1>User Management App</h1>
-      <User lang={["Bangla", "English", "Finnish"]} />
+      {/* <User lang={["Bangla", "English", "Finnish"]} /> */}
+      <UserDemo Users={Users} />
     </div>
   );
 }
