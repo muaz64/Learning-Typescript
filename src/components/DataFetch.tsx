@@ -1,3 +1,4 @@
+//union of types
 type MessageProps = {
     text: "ADD" | "UPDATE" | "DELETE";
   };
