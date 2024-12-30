@@ -1,7 +1,7 @@
 
 import './App.css'
-import DataFetch from './components/DataFetch';
 
+import Button from './components/Button';
 
 // const user1 = {
 //   name: "Muaz",
@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <h1>User Management App</h1>
-    <DataFetch text="UPDATE" />
+     <Button>Click Me </Button>
     </div>
   );
 }
