@@ -2,6 +2,7 @@
 import './App.css'
 
 import Button from './components/Button';
+import Post from './components/Post';
 
 // const user1 = {
 //   name: "Muaz",
@@ -44,7 +45,8 @@ function App() {
   return (
     <div className="App">
       <h1>User Management App</h1>
-     <Button>Click Me </Button>
+     {/* <Button>Click Me </Button> */}
+     <Post />
     </div>
   );
 }
