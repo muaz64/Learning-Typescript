@@ -15,7 +15,8 @@ The app displays a list of users with their details, such as name, email, age, a
   3. **Destructuring Method**: Destructuring props with type annotations.
   4. **Object Props Method**: Passing an object as a prop.
   5. **Array Props Method**: Passing an array as a prop.
-  6. **Union of Types**: Handling props with predefined string values.
+  6. **Union of Types**: Using union types for props.
+  7. **Children Props**: Using `children` to pass nested elements as props.
 
 ## Learnings
 
@@ -179,7 +180,7 @@ const User = ({ lang }: UserProps) => {
   return (
     <div style={{ border: "1px solid", margin: "1rem" }}>
       <p>
-        Speaks: {" "}
+        Speaks:{" "}
         {lang.map((language, index) => {
           return <span key={index}>{language} </span>;
         })}
@@ -202,7 +203,7 @@ export default App;
 
 #### 6. Union of Types
 
-This method uses a union of string literals as a prop type.
+This method demonstrates how to use union types for props.
 
 ```tsx
 type MessageProps = {
@@ -218,11 +219,50 @@ const DataFetch = (props: MessageProps) => {
   return <p>User is deleted</p>;
 };
 
+export default DataFetch;
+
 function App() {
   return (
     <div className="App">
       <h1>User Management App</h1>
       <DataFetch text="UPDATE" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+#### 7. Children Props
+
+This method demonstrates the use of `children` to pass nested components or elements.
+
+```tsx
+const Card = ({ children }: { children: React.ReactNode }) => {
+  return <div className="card">{children}</div>;
+};
+
+export default Card;
+
+const Post = () => {
+  return (
+    <Card>
+      <h3>Post Title</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, sed
+        dolor. Cum dolor quisquam maiores harum dignissimos impedit ab voluptate.
+      </p>
+    </Card>
+  );
+};
+
+export default Post;
+
+function App() {
+  return (
+    <div className="App">
+      <h1>User Management App</h1>
+      <Post />
     </div>
   );
 }
