@@ -269,6 +269,37 @@ function App() {
 
 export default App;
 ```
+#### 8. Style Props
+Style props allow you to pass inline styles as objects to components.
+
+```tsx
+
+type ButtonStyleProps = {
+  btnStyle: React.CSSProperties;
+};
+
+const ButtonStyle = (props: ButtonStyleProps) => {
+  return <div style={props.btnStyle}>ButtonStyle</div>;
+};
+
+export default ButtonStyle;
+
+import "./App.css";
+import ButtonStyle from "./components/ButtonStyle";
+
+const btnStyles = { color: "red", backgroundColor: "gray", padding: "0.5rem" };
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Style props</h1>
+      <ButtonStyle btnStyle={btnStyles} />
+    </div>
+  );
+}
+
+export default App;
+```
 
 
 
