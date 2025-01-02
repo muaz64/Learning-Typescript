@@ -1,8 +1,6 @@
 
 import './App.css'
-
-
-import Post from './components/Post';
+import ButtonStyle from './components/ButtonStyle';
 
 // const user1 = {
 //   name: "Muaz",
@@ -41,12 +39,13 @@ import Post from './components/Post';
 
 //   }
 // ]
+const btnStyles = {color: "red" , backgroundColor: "gray" , padding: "0.5rem" }
 function App() {
   return (
     <div className="App">
-      <h1>User Management App</h1>
-     {/* <Button>Click Me </Button> */}
-     <Post />
+      <h1>Style props</h1>
+      <ButtonStyle btnStyle={btnStyles}/>
+
     </div>
   );
 }
